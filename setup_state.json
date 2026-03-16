@@ -1,0 +1,14 @@
+{
+    "user": {
+        "name": "fdgfd",
+        "email": "gfdg"
+    },
+    "paths": {
+        "repo_root": "",
+        "java_home": "",
+        "liferay_home": ""
+    },
+    "completed_steps": {
+        "gitlab_email_sent": true
+    }
+}
