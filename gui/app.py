@@ -21,7 +21,7 @@ class SkillsHubApp(tk.Tk):
         self.geometry("750x650")
         self.minsize(650, 500)
 
-        # Initialize StateManager (fixing your previous error)
+        # Initialize StateManager
         self.state_manager = StateManager()
 
         # List of slide classes in order
@@ -35,7 +35,17 @@ class SkillsHubApp(tk.Tk):
             SlideDatabase,
             SlideStaging
         ]
-        self.current_slide_index = 0
+        
+        # --- ZMĚNA ZDE: Načtení indexu z uloženého stavu ---
+        # Pokud uživatel aplikaci ještě nikdy nezapnul, vrátí to výchozí hodnotu 0 (Welcome Slide)
+        saved_index = self.state_manager.get("progress", "current_slide_index", 0)
+        
+        # Pro jistotu zkontrolujeme, zda se index nevymyká počtu slidů (kdybychom v kódu nějaký slide smazali)
+        if 0 <= saved_index < len(self.slide_classes):
+            self.current_slide_index = saved_index
+        else:
+            self.current_slide_index = 0
+            
         self.current_slide_instance = None
 
         self._build_main_layout()
@@ -60,6 +70,9 @@ class SkillsHubApp(tk.Tk):
     def show_slide(self, index):
         if index < 0 or index >= len(self.slide_classes):
             return
+
+        # --- ZMĚNA ZDE: Uložení aktuální pozice do JSONu při každém přesunu ---
+        self.state_manager.set("progress", "current_slide_index", index)
 
         if self.current_slide_instance:
             self.current_slide_instance.destroy()

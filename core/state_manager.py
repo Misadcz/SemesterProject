@@ -8,7 +8,8 @@ class StateManager:
         self.state = {
             "user": {"name": "", "email": ""},
             "paths": {"repo_root": "", "java_home": "", "liferay_home": ""},
-            "completed_steps": {}
+            "completed_steps": {},
+            "progress": {"current_slide_index": 0}  # <-- NOVÁ SEKCE PRO ULOŽENÍ POZICE
         }
         self.load_state()
 

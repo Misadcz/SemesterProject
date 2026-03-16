@@ -1,14 +1,17 @@
 {
     "user": {
-        "name": "fdgfd",
-        "email": "gfdg"
+        "name": "John Doe",
+        "email": "abc0001@vsb.cz"
     },
     "paths": {
         "repo_root": "",
-        "java_home": "",
-        "liferay_home": ""
+        "java_home": "E:\\Projects\\SemesterProject\\Workspace\\jdk1.8.0_202",
+        "liferay_home": "E:\\Projects\\SemesterProject\\Workspace\\liferay-ce-portal-7.3.3-ga4"
     },
     "completed_steps": {
         "gitlab_email_sent": true
+    },
+    "progress": {
+        "current_slide_index": 4
     }
 }
