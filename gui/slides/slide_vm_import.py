@@ -3,6 +3,24 @@ from tkinter import ttk
 from pathlib import Path
 from gui.slides.base_slide import BaseSlide
 
+
+import subprocess
+
+def import_virtualbox_ova(ova_path):
+    vboxmanage_path = r"C:\Program Files\Oracle\VirtualBox\VBoxManage.exe"
+    
+    try:
+        subprocess.run(
+            [vboxmanage_path, 'import', ova_path], 
+            check=True, 
+            capture_output=True, 
+            text=True
+        )
+        return True
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return False
+
+
 class SlideVMImport(BaseSlide):
     def build_ui(self):
         tk.Label(self, text="Step 2: Environment Image Import", font=("Arial", 16, "bold")).pack(pady=(10, 5))
