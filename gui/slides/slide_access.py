@@ -46,5 +46,5 @@ class SlideAccess(BaseSlide):
 
     def open_email(self):
         subject = "SkillsHub - Request for GitLab Access"
-        body = "Hello,\n\nI am a new developer on the SkillsHub project and I would like to request access to the GitLab repository.\n\nThank you. My login is ABC1234."
+        body = "Hello,\n\nI am a new developer on the SkillsHub project and I would like to request access to the GitLab repository.\n\nThank you. My login is ABC1234 and email is john.doe@example.com"
         webbrowser.open(f"mailto:zdenek.velart@vsb.cz?subject={subject}&body={body}")

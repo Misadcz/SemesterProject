@@ -24,7 +24,7 @@ class SlideVirtualization(BaseSlide):
 
         self.create_link_button(btn_frame, " Download VirtualBox", "https://www.virtualbox.org/wiki/Downloads", bg="#cce5ff")
         
-        self.install_btn = tk.Button(vbox_frame, text="⚙️ Run Local Installer (VirtualBox-7.2.6a)", 
+        self.install_btn = tk.Button(vbox_frame, text=" Run Local Installer (VirtualBox-7.2.6a)", 
                                      font=("Arial", 9, "bold"), bg="#d4edda", command=self.run_local_vbox_installer)
         self.install_btn.pack(anchor=tk.W, pady=5)
 
