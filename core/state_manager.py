@@ -2,14 +2,13 @@ import json
 import os
 
 class StateManager:
-    """Manages saving and loading of configuration and installation state to/from a JSON file."""
     def __init__(self, state_file="setup_state.json"):
         self.state_file = state_file
         self.state = {
             "user": {"name": "", "email": ""},
             "paths": {"repo_root": "", "java_home": "", "liferay_home": ""},
             "completed_steps": {},
-            "progress": {"current_slide_index": 0}  # <-- NOVÁ SEKCE PRO ULOŽENÍ POZICE
+            "progress": {"current_slide_index": 0}  
         }
         self.load_state()
 

@@ -12,7 +12,6 @@ class SlideVirtualization(BaseSlide):
     def build_ui(self):
         tk.Label(self, text="Step 1: Virtualization Environment", font=("Arial", 16, "bold")).pack(pady=(10, 5))
 
-        # --- VIRTUALBOX SECTION ---
         vbox_frame = ttk.LabelFrame(self, text=" VirtualBox Installation ", padding=(10, 5))
         vbox_frame.pack(fill=tk.X, padx=20, pady=5)
         
@@ -23,15 +22,12 @@ class SlideVirtualization(BaseSlide):
         btn_frame = tk.Frame(vbox_frame)
         btn_frame.pack(fill=tk.X, pady=5)
 
-        # Odkaz na oficiální web
-        self.create_link_button(btn_frame, "🌐 Download VirtualBox", "https://www.virtualbox.org/wiki/Downloads", bg="#cce5ff")
+        self.create_link_button(btn_frame, " Download VirtualBox", "https://www.virtualbox.org/wiki/Downloads", bg="#cce5ff")
         
-        # Tlačítko pro lokální instalaci (Spustí se s právy správce)
         self.install_btn = tk.Button(vbox_frame, text="⚙️ Run Local Installer (VirtualBox-7.2.6a)", 
                                      font=("Arial", 9, "bold"), bg="#d4edda", command=self.run_local_vbox_installer)
         self.install_btn.pack(anchor=tk.W, pady=5)
 
-        # --- NAVIGATION ---
         nav_frame = tk.Frame(self)
         nav_frame.pack(side=tk.BOTTOM, pady=20)
         
@@ -49,10 +45,8 @@ class SlideVirtualization(BaseSlide):
             self.app.log_message(f"Launching VirtualBox installer: {installer_path.name}")
             try:
                 if sys.platform == "win32":
-                    # Magické slůvko "runas" přinutí Windows vyhodit UAC okno pro práva správce
                     ctypes.windll.shell32.ShellExecuteW(None, "runas", str(installer_path), None, None, 1)
                 else:
-                    # Fallback pro Linux/Mac
                     subprocess.Popen([str(installer_path)])
             except Exception as e:
                 self.app.log_message(f"Error launching installer: {e}")

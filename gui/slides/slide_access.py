@@ -7,7 +7,6 @@ class SlideAccess(BaseSlide):
     def build_ui(self):
         tk.Label(self, text="Step 3: Access and Credentials", font=("Arial", 16, "bold")).pack(pady=(10, 5))
         
-        # --- SEKCE 1: Žádost o přístup ---
         velart_frame = ttk.LabelFrame(self, text=" 1. GitLab Access (Zdeněk Velart) ", padding=(10, 5))
         velart_frame.pack(fill=tk.X, padx=20, pady=5)
 
@@ -19,18 +18,15 @@ class SlideAccess(BaseSlide):
         tk.Button(velart_frame, text="📧 Prepare Email to Ing. Velart", 
                   bg="#d4edda", command=self.open_email).pack(anchor=tk.W, pady=5)
 
-        # --- SEKCE 2: Naklonování a SSH klíče ---
         clone_frame = ttk.LabelFrame(self, text=" 2. SSH Key & Git Clone ", padding=(10, 5))
         clone_frame.pack(fill=tk.X, padx=20, pady=10)
 
         tk.Label(clone_frame, justify=tk.LEFT, text="Once your access is granted, log in to GitLab:").pack(anchor=tk.W)
 
-        # Klikatelný odkaz
         link_lbl = tk.Label(clone_frame, text="🔗 https://git.scoveco.cz/drives/platform", fg="blue", cursor="hand2")
         link_lbl.pack(anchor=tk.W, pady=(0, 10))
         link_lbl.bind("<Button-1>", lambda e: webbrowser.open("https://git.scoveco.cz/drives/platform"))
 
-        # Instrukce pro SSH a clone
         instructions = (
             "• Click the 'Code' button and copy the 'Clone with SSH' URL.\n\n"
             "• NO SSH KEY? If you haven't added an SSH key to GitLab yet:\n"
@@ -42,7 +38,6 @@ class SlideAccess(BaseSlide):
         )
         tk.Label(clone_frame, justify=tk.LEFT, text=instructions).pack(anchor=tk.W, pady=5)
 
-        # --- NAVIGATION ---
         nav_frame = tk.Frame(self)
         nav_frame.pack(side=tk.BOTTOM, pady=20)
         

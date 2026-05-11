@@ -1,8 +1,8 @@
 import tkinter as tk
 import webbrowser
 
+
 class ToolTip:
-    """Creates a tooltip bubble when hovering over a widget."""
     def __init__(self, widget, text):
         self.widget = widget
         self.text = text
@@ -28,7 +28,6 @@ class ToolTip:
             self.tooltip_window = None
 
 class BaseSlide(tk.Frame):
-    """Base class for all steps (slides) in the application."""
     def __init__(self, parent_container, app_controller):
         super().__init__(parent_container)
         self.app = app_controller
@@ -41,15 +40,12 @@ class BaseSlide(tk.Frame):
     def on_show(self):
         pass
 
-    # --- SHARED METHODS FOR ALL SLIDES ---
     def create_link_button(self, parent, text, url, bg=None):
-        """Creates a button with a link, hover effect, and copy via right-click."""
         btn = tk.Button(parent, text=text, command=lambda u=url: self.open_link(u))
         if bg:
             btn.config(bg=bg)
         btn.pack(side=tk.LEFT, padx=5)
         ToolTip(btn, f"Link: {url}\n(Right click = copy only)")
-        # Right-click bind (<Button-3> on Windows/Linux, might be <Button-2> on Mac)
         btn.bind("<Button-3>", lambda event, u=url: self.copy_only(u))
         return btn
 

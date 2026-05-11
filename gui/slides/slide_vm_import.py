@@ -23,7 +23,6 @@ class SlideVMImport(BaseSlide):
 
         tk.Button(import_frame, text="📂 Locate Image in 'libs'", command=self.locate_image).pack(anchor=tk.W, pady=5)
 
-        # --- NAVIGATION ---
         nav_frame = tk.Frame(self)
         nav_frame.pack(side=tk.BOTTOM, pady=20)
         
